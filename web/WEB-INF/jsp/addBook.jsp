@@ -36,21 +36,22 @@
             </div>
         </div>
 
-        <form action="" method="">
+        <form action="${pageContext.request.contextPath}/book/addBook" method="post">
             <div class="form-select-button">
                 <label for="bkname">书籍名称</label>
-                <input type="text" class="form-select-button" id="bkname">
+                <input type="text" name="bookName" class="form-select-button" id="bkname" required>
             </div>
 
             <div class="form-select-button">
                 <label>书籍数量</label>
-                <input type="text" class="form-select-button">
+                <input type="text"  name="bookCounts" class="form-select-button" required>
             </div>
 
             <div class="form-select-button">
             <label for="bkdetil">书籍详情</label>
-            <input type="text" class="form-select-button" id="bkdetil">
+            <input type="text"  name="detail"  class="form-select-button" id="bkdetil" required>
             </div>
+
             <div class="form-select-button">
 
                 <input type="submit" class="form-select-button" value="添加">

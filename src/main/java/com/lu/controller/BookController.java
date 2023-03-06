@@ -33,10 +33,12 @@ public class BookController {
     }
 
     //添加书籍的请求
+    @RequestMapping("/addBook")
     public String addBook(Books books){
-
+        System.out.println("ADDbook开始运行");
+        bookService.addBook(books);
         //这里用重定向还是转发，为什么
-        return "redirect:/book/allbook";
+        return "redirect:/book/allBook";
     }
 
 }
