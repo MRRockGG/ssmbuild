@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>新增列表</title>
+    <title>新增书籍</title>
 
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->

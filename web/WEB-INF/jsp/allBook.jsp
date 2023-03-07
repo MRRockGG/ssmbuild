@@ -38,6 +38,18 @@
             <div class="col-md-4 column">
               <a class="bullet-button" href="${pageContext.request.contextPath}/book/toAddBook">新增书籍</a>
             </div>
+            <div class="col-md-4 column">
+                <a class="bullet-button" href="${pageContext.request.contextPath}/book/allBook">显示所有书籍</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 column">
+                <form class="form-select-button" action="${pageContext.request.contextPath}/book/queryBook" method="post">
+                    <input name="queryBookName" type="text" class="table-cell" placeholder="请输入要查询的书籍名称">
+                    <input type="submit" name="查询" class="bullet-button" value="查询">
+                </form>
+
+            </div>
         </div>
 
     </div>
@@ -61,6 +73,11 @@
                         <td>${book.bookName}</td>
                         <td>${book.bookCounts}</td>
                         <td>${book.detail}</td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/book/toUpdate?id=${book.bookID}">修改</a>
+                            &nbsp; | &nbsp;
+                            <a href="${pageContext.request.contextPath}/book/deleteBook/${book.bookID}">删除</a>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

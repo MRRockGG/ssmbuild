@@ -72,6 +72,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.26</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.4</version>
+        </dependency>
 
 <!--        &lt;!&ndash;Log4j2自带的日志门面&ndash;&gt;
         <dependency>

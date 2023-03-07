@@ -24,7 +24,18 @@
     
     <select id="queryAllBook" resultType="Books">
         select *
-        from ssmbuild.books;
+        from ssmbuild.books
+        <where>
+            <if test="bookName != null&amp;bookName!=' '.toString">
+                bookName like concat('%',#{bookName},'%')
+            </if>
+        </where>
     </select>
+
+    <!--<select id="queryAllBook" resultType="Books">
+        select *
+        from ssmbuild.books
+        where bookName like concat('%',#{bookName},'%')
+    </select>-->
     
 </mapper>

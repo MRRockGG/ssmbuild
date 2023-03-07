@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -39,6 +41,39 @@ public class BookController {
         bookService.addBook(books);
         //这里用重定向还是转发，为什么
         return "redirect:/book/allBook";
+    }
+
+    //跳转到修改页面
+    @RequestMapping("/toUpdate")
+    public String toUpdatePager(int id,Model model) {
+        Books books = bookService.queryBookById(id);
+        model.addAttribute("QBook",books);
+        return "updateBook";}
+
+    //修改书籍的action
+    @RequestMapping("/updateBook")
+    public String updateBook(Books books){
+        System.out.println("updatebook开始运行");
+        bookService.updateBook(books);
+        //这里用重定向还是转发，为什么
+        return "redirect:/book/allBook";
+    }
+
+    //删除书籍的service
+    @RequestMapping("/deleteBook/{bookId}")
+    public String deleteBook(@PathVariable("bookId") int id){
+        bookService.deleteBookById(id);
+        return "redirect:/book/allBook";
+    }
+
+    //搜索书籍
+    @RequestMapping("/queryBook")
+    public String queryBook(String queryBookName,Model model){
+        List<Books> list = bookService.queryAllBook(queryBookName);
+        model.addAttribute("list",list);
+        return "allBook";
+
+
     }
 
 }
